@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2014-05-05 14:00+0000\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -266,7 +266,7 @@ msgstr ""
 
 #: app/scripts/lib/service-name.js:16
 msgid "Firefox Sync"
-msgstr ""
+msgstr "WebPlatform accounts"
 
 #: app/scripts/lib/strings.js:20
 msgid "Invalid password"
@@ -311,6 +311,7 @@ msgstr ""
 #: app/scripts/templates/cannot_create_account.mustache:2
 msgid "You must meet certain age requirements to create a Firefox&nbsp;Account."
 msgstr ""
+"You must meet certain age requirements to create a WebPlatform&nbsp;Account."
 
 #: app/scripts/templates/cannot_create_account.mustache:3
 msgid "Learn more."
@@ -446,6 +447,10 @@ msgid ""
 "Accounts. Cookies are small pieces of data stored in your browser that "
 "provide functionality such as remembering you between sessions."
 msgstr ""
+"Please enable cookies in your browser which are required by "
+"WebPlatform.org and enables you to contribute to our content. "
+"Cookies are small pieces of data stored in your browser that "
+"provide functionality such as remembering you during each page and times you visit our site."
 
 #: app/scripts/templates/cookies_disabled.mustache:3
 msgid "Learn more"
@@ -489,12 +494,15 @@ msgid ""
 "of Service</a> and <a id=\"fxa-pp\" href=\"/legal/privacy\">Privacy "
 "Notice</a> of Firefox cloud services."
 msgstr ""
+"By proceeding, I agree to the <a id=\"fxa-tos\" href=\"http://docs.webplatform.org/wiki/MediaWiki:Site-terms-of-service\">Contributor "
+"agreement</a>"
+" of WebPlatform.org."
 
 #: app/scripts/templates/legal.mustache:1
 #: app/scripts/templates/pp.mustache:1
 #: app/scripts/templates/tos.mustache:1
 msgid "Firefox cloud services"
-msgstr ""
+msgstr "WebPlatform.org"
 
 #: app/scripts/templates/legal.mustache:2
 msgid "Legal"
@@ -540,7 +548,7 @@ msgstr ""
 
 #: app/scripts/templates/ready.mustache:12
 msgid "Get Firefox for Android"
-msgstr ""
+msgstr "&nbsp;"
 
 #: app/scripts/templates/reset_password.mustache:2
 msgid "Enter your email to reset&nbsp;the account password."
@@ -574,11 +582,11 @@ msgstr ""
 
 #: app/scripts/templates/sign_up.mustache:1
 msgid "Create a Firefox Account for %(serviceName)s"
-msgstr ""
+msgstr "Create a WebPlatform Account for %(serviceName)s"
 
 #: app/scripts/templates/sign_up.mustache:3
 msgid "Create a Firefox Account"
-msgstr ""
+msgstr "Create a WebPlatform Account"
 
 #: app/scripts/templates/sign_up.mustache:11
 msgid "Year of birth"

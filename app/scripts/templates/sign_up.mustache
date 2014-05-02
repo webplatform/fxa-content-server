@@ -14,6 +14,15 @@
   <div class="success"></div>
 
   <form novalidate>
+
+    <div class="input-row">
+      <input type="text" placeholder="{{#t}}Full name{{/t}}" value="{{ fullName }}" class="fullName wpd-specific" />
+    </div>
+
+    <div class="input-row">
+      <input type="text" placeholder="{{#t}}Username{{/t}}" value="{{ username }}" class="username wpd-specific" pattern="^[A-Za-z0-9_]{2,55}$" max=55 required />
+    </div>
+
     <div class="input-row">
       <input type="email" class="email" placeholder="{{#t}}Email{{/t}}" value="{{ email }}" {{#shouldFocusEmail}}autofocus{{/shouldFocusEmail}} required />
     </div>

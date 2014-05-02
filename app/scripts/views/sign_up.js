@@ -11,9 +11,10 @@ define([
   'stache!templates/sign_up',
   'lib/session',
   'lib/password-mixin',
-  'lib/auth-errors'
+  'lib/auth-errors',
+  'lib/webplatform-signup-mixin'
 ],
-function (_, BaseView, FormView, Template, Session, PasswordMixin, AuthErrors) {
+function (_, BaseView, FormView, Template, Session, PasswordMixin, AuthErrors, WebplatformMixin) {
   var t = BaseView.t;
 
   function selectAutoFocusEl(email, password) {
@@ -134,7 +135,11 @@ function (_, BaseView, FormView, Template, Session, PasswordMixin, AuthErrors) {
       var customizeSync = this.$('.customize-sync').is(':checked');
 
       var self = this;
-      return this.fxaClient.signUp(email, password, { customizeSync: customizeSync })
+
+      var username = this.$('.username').val(); // WebPlatform.org specific
+      var fullName = this.$('.fullName').val(); // ^
+
+      return this.fxaClient.signUp(email, password, { customizeSync: customizeSync, username: username, fullName: fullName })
         .then(function (accountData) {
           return self.onSignUpSuccess(accountData);
         })
@@ -174,6 +179,13 @@ function (_, BaseView, FormView, Template, Session, PasswordMixin, AuthErrors) {
   });
 
   _.extend(View.prototype, PasswordMixin);
+
+  // Extend with our own mixins here. No
+  //   need to do the same oauth_sign_up
+  //   because it already extends this
+  //
+  // #TODO is there a better way?
+  WebplatformMixin(View);
 
   return View;
 });

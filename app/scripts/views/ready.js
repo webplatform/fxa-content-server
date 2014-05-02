@@ -20,8 +20,9 @@ define([
   'lib/xss',
   'lib/strings',
   'lib/oauth-mixin'
+  ,'lib/webplatform-ready-mixin'
 ],
-function (_, BaseView, FormView, Template, Session, Xss, Strings, OAuthMixin) {
+function (_, BaseView, FormView, Template, Session, Xss, Strings, OAuthMixin, WebplatformMixin) {
   var View = BaseView.extend({
     template: Template,
     className: 'reset_password_complete',
@@ -115,6 +116,11 @@ function (_, BaseView, FormView, Template, Session, Xss, Strings, OAuthMixin) {
   });
 
   _.extend(View.prototype, OAuthMixin);
+
+  // Extend with our own mixins here.
+  //
+  // #TODO is there a better way?
+  WebplatformMixin(View);
 
   return View;
 });

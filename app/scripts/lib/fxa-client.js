@@ -172,6 +172,8 @@ function (FxaClient, $, p, Session, AuthErrors, Constants) {
                   service: service,
                   redirectTo: redirectTo,
                   lang: Session.language
+                  ,username: options.username
+                  ,fullName: options.fullName
                 };
 
                 if (options.preVerified) {

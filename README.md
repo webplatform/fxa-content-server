@@ -1,6 +1,6 @@
-# Firefox Accounts Content Server
+# WebPlatform.org Accounts Content Server
 
-[![Build Status](https://travis-ci.org/mozilla/fxa-content-server.svg?branch=master)](https://travis-ci.org/mozilla/fxa-content-server)
+Based off of Mozilla Firefox Accounts server. This project constrantly rebases from either master branch with our own customizations on top of theirs.
 
 Static server that hosts Firefox Account sign up, sign in, email verification, etc. flows.
 
@@ -78,6 +78,14 @@ It is possible to run the Selenium tests against local browsers like Firefox, Ch
   * Stop PhantomJS if it is running.
   * from the `fxa-content-server` directory, type `npm test`
 
+### Development setup
+
+#### Working on content
+
+    bower update
+    grunt copy:strings
+    grunt po2json
+    grunt serverproc:dev
 
 ## Configuration
 
