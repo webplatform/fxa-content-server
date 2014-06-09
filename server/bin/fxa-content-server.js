@@ -59,7 +59,17 @@ function makeApp() {
   // with translating templates on the server.
   app.use(i18n);
 
-  app.use(helmet.xframe('deny'));
+  // WebPlatform Specific ===============================
+  // File: server/bin/fxa-content-server.js
+  // Line: 62
+  // Adjust helmet to accept xss from specific hosts
+  // see: https://github.com/evilpacket/helmet
+  // Comment, this:
+  //app.use(helmet.xframe('deny'));
+  // Instead:
+  app.use(helmet.csp({"script-src":["'self'", "*.webplatform.org", "*.mroftalpbew.org", "*.global.ssl.fastly.net", "*.w3.org"]}));
+  // /WebPlatform Specific ==============================
+
   app.use(helmet.iexss());
   app.use(helmet.hsts(config.get('hsts_max_age'), true));
   app.disable('x-powered-by');

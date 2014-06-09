@@ -37,6 +37,27 @@ function (_, Backbone, $, p, Session, AuthErrors, FxaClient, Url, Strings, Ephem
 
       this.fxaClient = new FxaClient();
 
+      // WebPlatform Specific ===============================
+      // file: app/scripts/views/base.js
+      // line: 40
+      // See: http://docs.webplatform.org/wiki/WPD:Projects/SSO/How_we_implemented_it#JavaScript_shared_module:_Detect_and_start_automatically_a_session
+      var fxaC = this.fxaClient;
+      function readAndReplyHasSession( e ) {
+        var b = window.localStorage.getItem('__fxa_session');
+        var sessionData = JSON.parse(b);
+
+        fxaC.isSignedIn(sessionData.sessionToken)
+            .done(
+              function( promised ){
+                // Will eventually change, as decribed in 
+                //   http://docs.webplatform.org/wiki/WPD:Projects/SSO/Improvements_roadmap#Recovering_session_data
+                e.source.postMessage({hasSession: promised, recoveryPayload: sessionData.sessionToken || null}, e.origin);
+              }
+            );
+      }
+      window.addEventListener("message", readAndReplyHasSession, false);
+      // /WebPlatform Specific ==============================
+
       Backbone.View.call(this, options);
     },
 
