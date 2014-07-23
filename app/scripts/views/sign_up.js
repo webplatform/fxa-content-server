@@ -11,10 +11,9 @@ define([
   'stache!templates/sign_up',
   'lib/session',
   'lib/password-mixin',
-  'lib/auth-errors',
-  'lib/webplatform-signup-mixin'
+  'lib/auth-errors'
 ],
-function (_, BaseView, FormView, Template, Session, PasswordMixin, AuthErrors, WebplatformMixin) {
+function (_, BaseView, FormView, Template, Session, PasswordMixin, AuthErrors) {
   var t = BaseView.t;
 
   function selectAutoFocusEl(email, password) {
@@ -179,13 +178,6 @@ function (_, BaseView, FormView, Template, Session, PasswordMixin, AuthErrors, W
   });
 
   _.extend(View.prototype, PasswordMixin);
-
-  // Extend with our own mixins here. No
-  //   need to do the same oauth_sign_up
-  //   because it already extends this
-  //
-  // #TODO is there a better way?
-  WebplatformMixin(View);
 
   return View;
 });

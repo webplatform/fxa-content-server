@@ -28,6 +28,7 @@ define([
   'views/change_password',
   'views/delete_account',
   'views/cookies_disabled'
+  ,'views/channel'
 ],
 function (
   _,
@@ -53,6 +54,7 @@ function (
   ChangePasswordView,
   DeleteAccountView,
   CookiesDisabledView
+  ,SsoChannel
 ) {
 
   function showView(View, options) {
@@ -67,6 +69,7 @@ function (
       'signin(/)': showView(SignInView),
       'oauth/signin(/)': showView(OAuthSignInView),
       'oauth/signup(/)': showView(OAuthSignUpView),
+      'channel(/)': showView(SsoChannel),
       'signin_complete(/)': showView(ReadyView, { type: 'sign_in' }),
       'signup(/)': showView(SignUpView),
       'signup_complete(/)': showView(ReadyView, { type: 'sign_up' }),

@@ -134,6 +134,14 @@ function (
           if (! areCookiesEnabled) {
             self._router.navigate('cookies_disabled');
           }
+          // WebPlatform specific ==================================
+          // If service=sso is called directly, just redirect, this doesnt get executed
+          // when called through an iframe anyway.
+          var routeName = Backbone.history.fragment;
+          if (!!routeName && routeName === "channel") {
+            self._router.navigate("settings", {trigger: true});
+          }
+          // /WebPlatform specific =================================
         });
     }
   };

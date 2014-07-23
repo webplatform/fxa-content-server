@@ -44,6 +44,14 @@ module.exports = function (config, templates, i18n) {
       res.redirect(req.originalUrl.slice(3));
     });
 
+    // WebPlatform specific =======================
+    // see also: app/scripts/views/channel.js
+    app.get('/channel', function (req, res) {
+      res.removeHeader('X-FRAME-OPTIONS');
+      return res.render('index');
+    });
+    // /WebPlatform specific =======================
+
     app.get('/template/:lang/:type', function (req, res) {
       res.json(templates(req.params.lang, req.params.type));
     });
@@ -83,6 +91,7 @@ module.exports = function (config, templates, i18n) {
       '/force_auth',
       '/oauth/signin',
       '/oauth/signup',
+      '/channel',
       '/cookies_disabled'
     ];
 

@@ -60,14 +60,7 @@ function makeApp() {
   app.use(i18n);
 
   // WebPlatform Specific ===============================
-  // File: server/bin/fxa-content-server.js
-  // Line: 62
-  // Adjust helmet to accept xss from specific hosts
-  // see: https://github.com/evilpacket/helmet
-  // Comment, this:
-  //app.use(helmet.xframe('deny'));
-  // Instead:
-  app.use(helmet.csp({"script-src":["'self'", "*.webplatform.org", "*.mroftalpbew.org", "*.global.ssl.fastly.net", "*.w3.org"]}));
+  app.use(helmet.xframe('SAMEORIGIN'));
   // /WebPlatform Specific ==============================
 
   app.use(helmet.iexss());

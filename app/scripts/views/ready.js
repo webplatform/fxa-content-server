@@ -117,7 +117,9 @@ function (_, BaseView, FormView, Template, Session, Xss, Strings, OAuthMixin, We
 
   _.extend(View.prototype, OAuthMixin);
 
-  // Extend with our own mixins here.
+  // Extend with our own mixins here. No
+  //   need to do the same oauth_sign_up
+  //   because it already extends this.
   //
   // #TODO is there a better way?
   WebplatformMixin(View);

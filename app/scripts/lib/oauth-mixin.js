@@ -73,7 +73,7 @@ define([
         return self._oAuthClient.getCode(self._oAuthParams);
       })
       .then(function(result) {
-        Session.clear('oauth');
+        Session.clear('oauth');  // RBx look about that
         // Redirect to the returned URL
         self.window.location.href = result.redirect;
       })
