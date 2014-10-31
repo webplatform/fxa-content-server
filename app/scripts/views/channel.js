@@ -37,7 +37,7 @@ function (_, BaseView, Session, Template, Url, p) {
   }
 
   function isAcceptedOriginFromUrl(urlString) {
-      return /(webplatform|mroftalpbew)\.org$/.test(originHostname(urlString));
+      return /webplatform(|staging)\.org$/.test(originHostname(urlString));
   }
 
   function wpdChannelHandler(messageEvent) {
